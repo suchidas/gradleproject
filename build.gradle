@@ -1,0 +1,38 @@
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'war'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2')
+    }
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:3.4.0'
+    implementation 'org.springframework:spring-webmvc:4.3.4.RELEASE'
+    testImplementation 'org.testng:testng:6.14.3'
+    providedCompile 'javax:javaee-api:7.0'
+}
+
+group = 'net.kzn'
+version = '0.0.1-SNAPSHOT'
+description = 'Spring Project'
+sourceCompatibility = '1.8'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+test {
+    useTestNG()
+}
+
