@@ -31,8 +31,9 @@ publishing {
         }
     }
 }
-
+/*
 test {
     useTestNG()
 }
+*/
 
